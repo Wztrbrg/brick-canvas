@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import useCanvas from "../hooks/useCanvas";
 import "./canvas.css"
+import { 
+  calculateDominantColor, 
+  getColorCount, 
+  getTopColors, 
+  findClosestColor, 
+  colorDistance } from "../utils/canvasUtils";
 
 // Canvas component handles displaying and fitting the uploaded image correctly
 function Canvas({ file, image }) {
@@ -60,6 +66,27 @@ function Canvas({ file, image }) {
         context.moveTo(0, y);
         context.lineTo(canvasWidth, y);
         context.stroke();
+      }
+
+      // Calculate number of rows and columns based on canvas size and cell size
+      const numRows = Math.floor(context.canvas.height / currentSize.cellSize);
+      const numCols = Math.floor(context.canvas.width / currentSize.cellSize);
+
+      // Loop through each cell and extract the image data for each cell
+      for (let row = 0; row < numRows; row++) {
+        for (let col = 0; col < numCols; col++) {
+          const x = col * currentSize.cellSize;
+          const y = row * currentSize.cellSize;
+          const cellImageData = context.getImageData(x, y, currentSize.cellSize, currentSize.cellSize);
+          
+          //calculate dominant color of each cell in the grid
+          const dominantColor = calculateDominantColor(cellImageData);
+
+          //fill each cell with their respective dominant color
+          context.fillStyle = dominantColor;
+          context.fillRect(x, y, currentSize.cellSize, currentSize.cellSize);
+
+        }
       }
     };
   
