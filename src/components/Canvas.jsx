@@ -21,7 +21,7 @@ function Canvas({ file, image }) {
     }
   ]
   const [currentSize, setCurrentSize] = useState(canSizes[0]["-"]);
-
+  
   //Used for zooming in/out on canvas
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -102,12 +102,11 @@ function Canvas({ file, image }) {
         const offsetY = (ctx.canvas.height - imgHeight) / 2;
 
         ctx.drawImage(img, offsetX, offsetY, imgWidth, imgHeight);
+        
 
         innerDrawGrid(ctx);
       };
       img.src = file;
-    } else {
-      innerDrawGrid(ctx);
     }
   }
 
