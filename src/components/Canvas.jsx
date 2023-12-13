@@ -2,11 +2,7 @@ import React, { useEffect, useState } from "react";
 import useCanvas from "../hooks/useCanvas";
 import "./canvas.css"
 import { 
-  calculateDominantColor, 
-  getColorCount, 
-  getTopColors, 
-  findClosestColor, 
-  colorDistance } from "../utils/canvasUtils";
+  calculateDominantColor } from "../utils/canvasUtils";
 
 // Canvas component handles displaying and fitting the uploaded image correctly
 function Canvas({ file, image }) {
