@@ -1,3 +1,13 @@
+/* 
+
+Utilities for the canvas,
+includes functions for calculating the dominant color of each cell in the grid,
+calculating the closest color match to the colors array,
+applying the closest color for cells
+
+*/
+
+// Available colors
 const colors = [
   "rgba(244, 244, 244, 1)",
   "rgba(208, 206, 201, 1)",

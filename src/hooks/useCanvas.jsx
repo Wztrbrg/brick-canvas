@@ -1,3 +1,9 @@
+/*
+
+Custom hook for canvas useEffect to trigger rendering of canvas
+
+*/
+
 import { useRef, useEffect } from "react";
 
 function useCanvas(draw)  {

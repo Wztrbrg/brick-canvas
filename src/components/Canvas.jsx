@@ -1,11 +1,22 @@
+/* 
+
+Canvas component handles displaying and fitting the uploaded image correctly,
+Dividing the canvas in to a grid where each cell corresponds to one lego piece in scale,
+Calculating the dominant color of each cell,
+Comparing the dominant color to an array of pre-defined colors,
+Fills each cell with their respective dominant (closest) color. 
+
+*/
+
 import React, { useEffect, useState } from "react";
 import useCanvas from "../hooks/useCanvas";
 import "./canvas.css"
 import { 
   calculateDominantColor } from "../utils/canvasUtils";
 
-// Canvas component handles displaying and fitting the uploaded image correctly
+
 function Canvas({ file, image }) {
+  //Initial canvas sizes, scaling to a 4x3 x (24x24 baseplates)
   const canSizes = [
     {
       "-": {
@@ -20,8 +31,8 @@ function Canvas({ file, image }) {
       }
     }
   ]
+  //States for canvas-size, brightness, contrast and saturation
   const [currentSize, setCurrentSize] = useState(canSizes[0]["-"]);
-   // State variables to manage brightness and contrast
    const [brightness, setBrightness] = useState(0);
    const [contrast, setContrast] = useState(1);
    const [saturation, setSaturation] = useState(1);
@@ -57,30 +68,40 @@ function Canvas({ file, image }) {
     setSaturation(Number(value));
   };
 
-  // Add these functions for brightness and contrast adjustments
-  function applyBrightnessContrast(imageData, brightness, contrast) {
+  // Functions for brightness, contrast and saturation adjustments
+  const applyImageAdjustments = (imageData, brightness, contrast, saturation) => {
     const data = imageData.data;
-
+  
+    const adjustment = (value, adjustmentValue) =>
+      Math.round(((value - 128) * adjustmentValue) + 128);
+  
     for (let i = 0; i < data.length; i += 4) {
       // Apply brightness
-      data[i] += brightness;
-      data[i + 1] += brightness;
-      data[i + 2] += brightness;
-
-      // Apply contrast
-      data[i] = (data[i] - 128) * contrast + 128;
-      data[i + 1] = (data[i + 1] - 128) * contrast + 128;
-      data[i + 2] = (data[i + 2] - 128) * contrast + 128;
-    }
-
-    return imageData;
-  }
+      data[i] = adjustment(data[i], contrast) + brightness;
+      data[i + 1] = adjustment(data[i + 1], contrast) + brightness;
+      data[i + 2] = adjustment(data[i + 2], contrast) + brightness;
   
+      // Apply contrast
+      data[i] = adjustment(data[i], contrast);
+      data[i + 1] = adjustment(data[i + 1], contrast);
+      data[i + 2] = adjustment(data[i + 2], contrast);
+  
+      // Apply saturation
+      const grayscale =
+        0.2989 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
+      data[i] = saturation * data[i] + (1 - saturation) * grayscale;
+      data[i + 1] = saturation * data[i + 1] + (1 - saturation) * grayscale;
+      data[i + 2] = saturation * data[i + 2] + (1 - saturation) * grayscale;
+    }
+  
+    return imageData;
+  };
+  
+  // Draw function for rendering image to the canvas
   const draw = (ctx) => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-    // Function for drawing grid on image
-    const innerDrawGrid = (context) => {
+    const gridOverlay = (context) => {
       const canvasWidth = context.canvas.width;
       const canvasHeight = context.canvas.height;
   
@@ -102,6 +123,10 @@ function Canvas({ file, image }) {
         context.lineTo(canvasWidth, y);
         context.stroke();
       }
+    }
+
+    // Function dividing canvas into grid
+    const innerDrawGrid = (context) => {
 
       // Calculate number of rows and columns based on canvas size and cell size
       const numRows = Math.floor(context.canvas.height / currentSize.cellSize);
@@ -146,14 +171,17 @@ function Canvas({ file, image }) {
         const imageData = ctx.getImageData(offsetX, offsetY, imgWidth, imgHeight);
 
         // Apply brightness and contrast adjustments
-        const adjustedImageData = applyBrightnessContrast(imageData, brightness, contrast, saturation);
+        const adjustedImageData = applyImageAdjustments(imageData, brightness, contrast, saturation);
 
         // Put the adjusted image data back onto the canvas
         ctx.putImageData(adjustedImageData, offsetX, offsetY);
 
         innerDrawGrid(ctx);
+        gridOverlay(ctx);
       };
       img.src = file;
+    } else {
+      gridOverlay(ctx);
     }
   }
 
@@ -171,7 +199,6 @@ function Canvas({ file, image }) {
           value={brightness}
           onChange={handleBrightnessChange}
         />
-        <span>{brightness}</span>
 
         <label htmlFor="contrast">Contrast</label>
         <input
@@ -183,7 +210,7 @@ function Canvas({ file, image }) {
           value={contrast}
           onChange={handleContrastChange}
         />
-        <span>{contrast}</span>
+        
         <label htmlFor="saturation">Saturation</label>
         <input
           type="range"
@@ -194,7 +221,6 @@ function Canvas({ file, image }) {
           value={saturation}
           onChange={handleSaturationChange}
         />
-        <span>{saturation}</span>
       </div>
       <canvas className="canvas" ref={canvasRef} />
       <div className="btn-container">
