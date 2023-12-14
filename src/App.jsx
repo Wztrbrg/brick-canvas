@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import Canvas from "./components/Canvas";
-import "./app.css"
+import Upload from "./components/Upload";
+import Header from "./components/Header";
+import "./app.css";
 
 function App() {
-  const [file, setFile] = useState(); 
+  const [file, setFile] = useState();
   const [image, setImage] = useState(null);
 
-  function handleChange(e) {
-    const uploadedFile = e.target.files[0];
+  const handleFileChange = (uploadedFile) => {
     if (uploadedFile) {
       setFile(URL.createObjectURL(uploadedFile));
       setImage(uploadedFile);
@@ -15,17 +16,14 @@ function App() {
       setFile(null);
       setImage(null);
     }
-  }
+  };
 
   return (
     <>
+      <Header />
       <div className="page-wrapper">
-        <h1>Brick Canvas</h1>
-        <div className="input-wrapper">
-          <h2>Ladda upp bild</h2>
-          <input type="file" onChange={handleChange} />
-        </div>
-        <div className="canvas-wrapper">
+        <div className="main">
+          <Upload onFileChange={handleFileChange} />
           <Canvas file={file} image={image} />
         </div>
       </div>

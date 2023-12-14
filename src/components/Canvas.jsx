@@ -189,47 +189,57 @@ function Canvas({ file, image }) {
 
   return (
     <>
-      <div className="slider-container">
-        <label htmlFor="brightness">Brightness</label>
-        <input
-          type="range"
-          id="brightness"
-          min="-100"
-          max="100"
-          value={brightness}
-          onChange={handleBrightnessChange}
-        />
+      <div className="canvas-wrapper">
+        <div className="sidebar">
+          <div className="slider-container">
+            <h2>Justera bildens ljus och färg efter dina egna önskemål</h2>
+            <label htmlFor="brightness">Ljusstyrka</label>
+            <input
+              type="range"
+              id="brightness"
+              min="-100"
+              max="100"
+              value={brightness}
+              onChange={handleBrightnessChange}
+            />
 
-        <label htmlFor="contrast">Contrast</label>
-        <input
-          type="range"
-          id="contrast"
-          min="0"
-          max="2"
-          step="0.1"
-          value={contrast}
-          onChange={handleContrastChange}
-        />
-        
-        <label htmlFor="saturation">Saturation</label>
-        <input
-          type="range"
-          id="saturation"
-          min="0"
-          max="2"
-          step="0.1"
-          value={saturation}
-          onChange={handleSaturationChange}
-        />
-      </div>
-      <canvas className="canvas" ref={canvasRef} />
-      <div className="btn-container">
-          {Object.keys(canSizes[0]).map((sizeKey, index) => (
-            <button key={index} onClick={() => changeCanvasSize(canSizes[0][sizeKey])}>
-              {sizeKey}
-            </button>
-          ))}
+            <label htmlFor="contrast">Kontrast</label>
+            <input
+              type="range"
+              id="contrast"
+              min="0"
+              max="2"
+              step="0.1"
+              value={contrast}
+              onChange={handleContrastChange}
+            />
+            
+            <label htmlFor="saturation">Mättnad</label>
+            <input
+              type="range"
+              id="saturation"
+              min="0"
+              max="2"
+              step="0.1"
+              value={saturation}
+              onChange={handleSaturationChange}
+            />
+          </div>
+          <div className="zoom-container">
+            <h2>Förstora arbetsytan</h2>
+            <div className="btn-container">
+              {Object.keys(canSizes[0]).map((sizeKey, index) => (
+                <button className="zoom-btn" key={index} onClick={() => changeCanvasSize(canSizes[0][sizeKey])}>
+                  {sizeKey}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
+        <div className="display">
+          <canvas className="canvas" ref={canvasRef} />
+        </div>
+      </div>
     </>
   );
 };

@@ -1,15 +1,50 @@
+.canvas-wrapper {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 204px);
+}
+
+.sidebar {
+  width: 25%;
+  height: 100%;
+  padding: 16px;
+  border-right: 1px solid rgba(176, 168, 168, 0.326);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sidebar h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.display {
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(250, 244, 244);
+}
+
+.slider-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.slider-container label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
 .canvas {
   border: 1px solid black;
 }
 
-input::file-selector-button {
-  padding: 8px 16px;
-  border: 2px solid #adb9f1;
-  border-radius: 8px;
-  background-color: #e2e7ff;
-  color: #6f7bb4;
-  font-size: 16px;
-  font-weight: 500;
+.zoom-container h2 {
+  margin-bottom: 16px;
 }
 
 .btn-container {
@@ -21,10 +56,19 @@ input::file-selector-button {
 .btn-container button {
   width: 50%;
   padding: 8px 0;
-  border: 2px solid #adb9f1;
+  border: 2px solid rgb(65, 57, 57);
   border-radius: 8px;
-  background-color: #e2e7ff;
-  color: #6f7bb4;
+  background-color: rgba(0, 0, 0, 0);
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: rgb(65, 57, 57);
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
+  box-shadow: 4px 4px rgb(65, 57, 57);
+
+}
+.btn-container button:hover {
+  box-shadow: 2px 2px rgb(65, 57, 57);
+  /* transition: .2s; */
 }
