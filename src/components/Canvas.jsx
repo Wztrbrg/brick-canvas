@@ -13,6 +13,7 @@ import useCanvas from "../hooks/useCanvas";
 import "./canvas.css"
 import { 
   calculateDominantColor } from "../utils/canvasUtils";
+import AdjustmentSliders from "./AdjustmentSliders";
 
 
 function Canvas({ file, image }) {
@@ -33,9 +34,9 @@ function Canvas({ file, image }) {
   ]
   //States for canvas-size, brightness, contrast and saturation
   const [currentSize, setCurrentSize] = useState(canSizes[0]["-"]);
-   const [brightness, setBrightness] = useState(0);
-   const [contrast, setContrast] = useState(1);
-   const [saturation, setSaturation] = useState(1);
+  const [brightness, setBrightness] = useState(0);
+  const [contrast, setContrast] = useState(1);
+  const [saturation, setSaturation] = useState(1);
   
   //Used for zooming in/out on canvas
   useEffect(() => {
@@ -50,8 +51,8 @@ function Canvas({ file, image }) {
     setCurrentSize(size);
   };
 
-  // Function to handle brightness slider change
-  const handleBrightnessChange = (event) => {
+   // Function to handle brightness slider change
+   const handleBrightnessChange = (event) => {
     const { value } = event.target;
     setBrightness(Number(value));
   };
@@ -66,10 +67,11 @@ function Canvas({ file, image }) {
   const handleSaturationChange = (event) => {
     const { value } = event.target;
     setSaturation(Number(value));
+  
   };
 
-  // Functions for brightness, contrast and saturation adjustments
-  const applyImageAdjustments = (imageData, brightness, contrast, saturation) => {
+   // Functions for brightness, contrast and saturation adjustments
+   const applyImageAdjustments = (imageData, brightness, contrast, saturation) => {
     const data = imageData.data;
   
     const adjustment = (value, adjustmentValue) =>
@@ -96,6 +98,7 @@ function Canvas({ file, image }) {
   
     return imageData;
   };
+  
   
   // Draw function for rendering image to the canvas
   const draw = (ctx) => {
@@ -167,7 +170,7 @@ function Canvas({ file, image }) {
 
         ctx.drawImage(img, offsetX, offsetY, imgWidth, imgHeight);
         
-         // Get the image data after drawing the image
+        // Get the image data after drawing the image
         const imageData = ctx.getImageData(offsetX, offsetY, imgWidth, imgHeight);
 
         // Apply brightness and contrast adjustments
@@ -175,6 +178,8 @@ function Canvas({ file, image }) {
 
         // Put the adjusted image data back onto the canvas
         ctx.putImageData(adjustedImageData, offsetX, offsetY);
+
+       
 
         innerDrawGrid(ctx);
         gridOverlay(ctx);
@@ -191,40 +196,14 @@ function Canvas({ file, image }) {
     <>
       <div className="canvas-wrapper">
         <div className="sidebar">
-          <div className="slider-container">
-            <h2>Justera bildens ljus och färg efter dina egna önskemål</h2>
-            <label htmlFor="brightness">Ljusstyrka</label>
-            <input
-              type="range"
-              id="brightness"
-              min="-100"
-              max="100"
-              value={brightness}
-              onChange={handleBrightnessChange}
-            />
-
-            <label htmlFor="contrast">Kontrast</label>
-            <input
-              type="range"
-              id="contrast"
-              min="0"
-              max="2"
-              step="0.1"
-              value={contrast}
-              onChange={handleContrastChange}
-            />
-            
-            <label htmlFor="saturation">Mättnad</label>
-            <input
-              type="range"
-              id="saturation"
-              min="0"
-              max="2"
-              step="0.1"
-              value={saturation}
-              onChange={handleSaturationChange}
-            />
-          </div>
+          <AdjustmentSliders 
+            brightness={brightness} 
+            contrast={contrast} 
+            saturation={saturation}
+            handleBrightnessChange={handleBrightnessChange}
+            handleContrastChange={handleContrastChange}
+            handleSaturationChange={handleSaturationChange}
+             />
           <div className="zoom-container">
             <h2>Förstora arbetsytan</h2>
             <div className="btn-container">
