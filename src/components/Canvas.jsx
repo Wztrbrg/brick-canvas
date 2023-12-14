@@ -21,14 +21,17 @@ function Canvas({ file, image }) {
     }
   ]
   const [currentSize, setCurrentSize] = useState(canSizes[0]["-"]);
+   // State variables to manage brightness and contrast
+   const [brightness, setBrightness] = useState(0);
+   const [contrast, setContrast] = useState(1);
+   const [saturation, setSaturation] = useState(1);
   
   //Used for zooming in/out on canvas
   useEffect(() => {
     const canvas = canvasRef.current;
-    let cellSize;
     canvas.width = currentSize.width;
     canvas.height = currentSize.height;
-    cellSize = currentSize.cellSize;
+    let cellSize = currentSize.cellSize;
     
   }, [currentSize]);
 
@@ -36,6 +39,42 @@ function Canvas({ file, image }) {
     setCurrentSize(size);
   };
 
+  // Function to handle brightness slider change
+  const handleBrightnessChange = (event) => {
+    const { value } = event.target;
+    setBrightness(Number(value));
+  };
+
+  // Function to handle contrast slider change
+  const handleContrastChange = (event) => {
+    const { value } = event.target;
+    setContrast(Number(value));
+  };
+
+  // Function to handle saturation slider change
+  const handleSaturationChange = (event) => {
+    const { value } = event.target;
+    setSaturation(Number(value));
+  };
+
+  // Add these functions for brightness and contrast adjustments
+  function applyBrightnessContrast(imageData, brightness, contrast) {
+    const data = imageData.data;
+
+    for (let i = 0; i < data.length; i += 4) {
+      // Apply brightness
+      data[i] += brightness;
+      data[i + 1] += brightness;
+      data[i + 2] += brightness;
+
+      // Apply contrast
+      data[i] = (data[i] - 128) * contrast + 128;
+      data[i + 1] = (data[i + 1] - 128) * contrast + 128;
+      data[i + 2] = (data[i + 2] - 128) * contrast + 128;
+    }
+
+    return imageData;
+  }
   
   const draw = (ctx) => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -103,6 +142,14 @@ function Canvas({ file, image }) {
 
         ctx.drawImage(img, offsetX, offsetY, imgWidth, imgHeight);
         
+         // Get the image data after drawing the image
+        const imageData = ctx.getImageData(offsetX, offsetY, imgWidth, imgHeight);
+
+        // Apply brightness and contrast adjustments
+        const adjustedImageData = applyBrightnessContrast(imageData, brightness, contrast, saturation);
+
+        // Put the adjusted image data back onto the canvas
+        ctx.putImageData(adjustedImageData, offsetX, offsetY);
 
         innerDrawGrid(ctx);
       };
@@ -114,6 +161,41 @@ function Canvas({ file, image }) {
 
   return (
     <>
+      <div className="slider-container">
+        <label htmlFor="brightness">Brightness</label>
+        <input
+          type="range"
+          id="brightness"
+          min="-100"
+          max="100"
+          value={brightness}
+          onChange={handleBrightnessChange}
+        />
+        <span>{brightness}</span>
+
+        <label htmlFor="contrast">Contrast</label>
+        <input
+          type="range"
+          id="contrast"
+          min="0"
+          max="2"
+          step="0.1"
+          value={contrast}
+          onChange={handleContrastChange}
+        />
+        <span>{contrast}</span>
+        <label htmlFor="saturation">Saturation</label>
+        <input
+          type="range"
+          id="saturation"
+          min="0"
+          max="2"
+          step="0.1"
+          value={saturation}
+          onChange={handleSaturationChange}
+        />
+        <span>{saturation}</span>
+      </div>
       <canvas className="canvas" ref={canvasRef} />
       <div className="btn-container">
           {Object.keys(canSizes[0]).map((sizeKey, index) => (
