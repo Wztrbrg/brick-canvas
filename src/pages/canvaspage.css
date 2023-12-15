@@ -1,4 +1,4 @@
-.page-wrapper {
+.canvas-page-wrapper {
   height: calc(100vh - 104px);
   width: 100%;
   display: flex;

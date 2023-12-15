@@ -3,17 +3,17 @@ header {
   padding: 24px 16px;
   display:  flex;
   align-items: last baseline;
-  justify-content: center;
-  gap: 16px;
+  gap: 24px;
   border-bottom: 1px solid rgba(176, 168, 168, 0.326);
   background-color: rgb(255, 250, 250);
 }
 
-header h1 {
+.logo {
   font-weight: 800;
   font-size: 40px;
   color: rgb(255, 179, 0);
   letter-spacing: -3.5px;
+  text-decoration: none;
 }
 
 header h2 {

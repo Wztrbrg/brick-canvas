@@ -188,7 +188,7 @@ function Canvas({ file, image, onCancel }) {
           <ZoomButtons setCurrentSize={(currentSize) => setCurrentSize(currentSize)} canSizes={canSizes} />
           <div className="divider"></div>
           <div className="action-btn-container">
-            <button className="custom-upload-btn">Fortsätt</button>
+            <button className="action-btn">Fortsätt</button>
             <button onClick={handleCancel} className="cancel-btn">Börja Om</button>
           </div>
         </div>

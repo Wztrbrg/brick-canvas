@@ -22,16 +22,18 @@ function Upload({ onFileChange }) {
 
   return (
     <div className="input-wrapper">
-      <h2>Börja med att ladda upp din bild</h2>
-      <button className="custom-upload-btn" onClick={handleButtonClick}>
-        Välj Bild
-      </button>
-      <input
-        ref={fileInputRef}
-        type="file"
-        style={{ display: "none" }}
-        onChange={handleChange}
-      />
+      <div className="input-content-wrapper">
+        <h2>Börja med att ladda upp din bild</h2>
+        <button className="custom-upload-btn" onClick={handleButtonClick}>
+          Välj Bild
+        </button>
+        <input
+          ref={fileInputRef}
+          type="file"
+          style={{ display: "none" }}
+          onChange={handleChange}
+        />
+      </div>
     </div>
   );
 }

@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import "./header.css"
 
 function Header() {
   return (
     <header>
-      <h1>Brick Canvas</h1>
+      <Link to={"/"} className="logo">Brick Canvas</Link>
       <h2>Förvandla dina bilder till Lego-mästerverk</h2>
     </header>
   )
