@@ -14,7 +14,7 @@
   width: 50%;
   padding: 8px 0;
   border: 2px solid rgb(65, 57, 57);
-  border-radius: 8px;
+  border-radius: 4px;
   background-color: rgba(0, 0, 0, 0);
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -22,9 +22,14 @@
   color: rgb(65, 57, 57);
   font-size: 16px;
   font-weight: 700;
-  box-shadow: 4px 4px rgb(65, 57, 57);
+  box-shadow: 3px 3px rgb(65, 57, 57);
 
 }
 .btn-container button:hover {
+  box-shadow: 4px 4px rgb(65, 57, 57);
+  cursor: pointer;
+}
+
+.btn-container button:active {
   box-shadow: 2px 2px rgb(65, 57, 57);
 }

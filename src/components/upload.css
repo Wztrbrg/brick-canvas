@@ -12,10 +12,10 @@
   font-weight: 700;
 }
 
-input::file-selector-button {
+.custom-upload-btn {
   padding: 8px 16px;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   background-color: rgb(255, 179, 0);
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -24,7 +24,10 @@ input::file-selector-button {
   font-size: 16px;
   font-weight: 700;
 }
-input::file-selector-button:hover {
+.custom-upload-btn:hover {
   background-color: rgb(254, 208, 103);
-  transition: .2s;
+  box-shadow: 0 10px 20px rgba(254, 209, 103, 0.407);
+  padding: 10px 18px;
+  transition: box-shadow .7s;
+  cursor: pointer;
 }
