@@ -17,7 +17,7 @@ import AdjustmentSliders from "./AdjustmentSliders";
 import ZoomButtons from "./ZoomButtons";
 
 
-function Canvas({ file, image }) {
+function Canvas({ file, image, onCancel }) {
   //Initial canvas sizes, scaling to a 4x3 x (24x24 baseplates)
   const canSizes = [
     {
@@ -48,6 +48,10 @@ function Canvas({ file, image }) {
     let cellSize = currentSize.cellSize;
     
   }, [currentSize]);
+
+  const handleCancel = () => {
+    onCancel();
+  }
 
    // Functions for brightness, contrast and saturation adjustments
    const applyImageAdjustments = (imageData, brightness, contrast, saturation) => {
@@ -181,6 +185,10 @@ function Canvas({ file, image }) {
             setSaturation={(saturation) => setSaturation(saturation)}
           />
           <ZoomButtons setCurrentSize={(currentSize) => setCurrentSize(currentSize)} canSizes={canSizes} />
+          <div className="action-btn-container">
+            <button className="custom-upload-btn">Fortsätt</button>
+            <button onClick={handleCancel} className="cancel-btn">Börja Om</button>
+          </div>
         </div>
         <div className="display">
           <canvas className="canvas" ref={canvasRef} />

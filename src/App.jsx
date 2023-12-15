@@ -18,13 +18,18 @@ function App() {
     }
   };
 
+  const handleCancel = () => {
+    setFile(null);
+    setImage(null);
+  }
+
   return (
     <>
       <Header />
       <div className="page-wrapper">
         <div className="main">
-          <Upload onFileChange={handleFileChange} />
-          <Canvas file={file} image={image} />
+          {(!file) ? <Upload onFileChange={handleFileChange} /> :
+           <Canvas file={file} image={image} onCancel={handleCancel} />}
         </div>
       </div>
     </>
