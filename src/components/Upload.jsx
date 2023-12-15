@@ -24,7 +24,7 @@ function Upload({ onFileChange }) {
     <div className="input-wrapper">
       <h2>Börja med att ladda upp din bild</h2>
       <button className="custom-upload-btn" onClick={handleButtonClick}>
-        Välj Bild
+        {(!file) ? "Välj Bild" : "Byt Bild"}
       </button>
       <input
         ref={fileInputRef}
