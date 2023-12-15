@@ -5,6 +5,9 @@ function AdjustmentSliders({
   setBrightness, 
   setContrast, 
   setSaturation,
+  brightness,
+  contrast,
+  saturation,
 }) {
  
   // Function to handle brightness slider change
@@ -37,6 +40,7 @@ function AdjustmentSliders({
           id="brightness"
           min="-100"
           max="100"
+          value={brightness}
           onChange={handleBrightnessChange}
         />
 
@@ -47,6 +51,7 @@ function AdjustmentSliders({
           min="0"
           max="2"
           step="0.1"
+          value={contrast}
           onChange={handleContrastChange}
         />
 
@@ -57,6 +62,7 @@ function AdjustmentSliders({
           min="0"
           max="2"
           step="0.1"
+          value={saturation}
           onChange={handleSaturationChange}
         />
       </div>
