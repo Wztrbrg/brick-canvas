@@ -3,6 +3,7 @@ header {
   padding: 24px 16px;
   display:  flex;
   align-items: last baseline;
+  justify-content: center;
   gap: 16px;
   border-bottom: 1px solid rgba(176, 168, 168, 0.326);
   background-color: rgb(255, 250, 250);
