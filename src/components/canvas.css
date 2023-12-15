@@ -29,13 +29,13 @@
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: rgb(255, 255, 255);
+  color: rgb(65, 57, 57);
   font-size: 16px;
   font-weight: 700;
 }
 
 .cancel-btn:hover {
-  background-color: rgb(208, 202, 202);
+  background-color: rgb(236, 232, 232);
   box-shadow: 4px 4px rgb(65, 57, 57);
   cursor: pointer;
 }
@@ -57,3 +57,6 @@
   border: 1px solid black;
 }
 
+.divider {
+  border-bottom: 1px solid rgba(176, 168, 168, 0.326);
+}

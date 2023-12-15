@@ -184,7 +184,9 @@ function Canvas({ file, image, onCancel }) {
             setContrast={(contrast) => setContrast(contrast)}
             setSaturation={(saturation) => setSaturation(saturation)}
           />
+          <div className="divider"></div>
           <ZoomButtons setCurrentSize={(currentSize) => setCurrentSize(currentSize)} canSizes={canSizes} />
+          <div className="divider"></div>
           <div className="action-btn-container">
             <button className="custom-upload-btn">Fortsätt</button>
             <button onClick={handleCancel} className="cancel-btn">Börja Om</button>

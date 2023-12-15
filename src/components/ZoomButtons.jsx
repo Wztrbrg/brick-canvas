@@ -11,7 +11,7 @@ function ZoomButtons({ setCurrentSize, canSizes }) {
     <>
       <div className="zoom-container">
         <h2>Förstora arbetsytan</h2>
-        <div className="btn-container">
+        <div className="zoom-btn-container">
           {Object.keys(canSizes[0]).map((sizeKey, index) => (
             <button
               className="zoom-btn"
