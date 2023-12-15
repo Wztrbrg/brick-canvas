@@ -14,11 +14,6 @@
   gap: 24px;
 }
 
-.sidebar h2 {
-  font-size: 20px;
-  font-weight: 700;
-}
-
 .display {
   width: 75%;
   display: flex;
@@ -27,48 +22,7 @@
   background-color: rgb(250, 244, 244);
 }
 
-.slider-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.slider-container label {
-  font-size: 16px;
-  font-weight: 600;
-}
-
 .canvas {
   border: 1px solid black;
 }
 
-.zoom-container h2 {
-  margin-bottom: 16px;
-}
-
-.btn-container {
-  width: 100%;
-  display: flex;
-  gap: 8px;
-}
-
-.btn-container button {
-  width: 50%;
-  padding: 8px 0;
-  border: 2px solid rgb(65, 57, 57);
-  border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0);
-  font-family: 'Open Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: rgb(65, 57, 57);
-  font-size: 16px;
-  font-weight: 700;
-  box-shadow: 4px 4px rgb(65, 57, 57);
-
-}
-.btn-container button:hover {
-  box-shadow: 2px 2px rgb(65, 57, 57);
-  /* transition: .2s; */
-}

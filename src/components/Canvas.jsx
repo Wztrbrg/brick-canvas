@@ -14,6 +14,7 @@ import "./canvas.css"
 import { 
   calculateDominantColor } from "../utils/canvasUtils";
 import AdjustmentSliders from "./AdjustmentSliders";
+import ZoomButtons from "./ZoomButtons";
 
 
 function Canvas({ file, image }) {
@@ -32,6 +33,7 @@ function Canvas({ file, image }) {
       }
     }
   ]
+
   //States for canvas-size, brightness, contrast and saturation
   const [currentSize, setCurrentSize] = useState(canSizes[0]["-"]);
   const [brightness, setBrightness] = useState(0);
@@ -46,10 +48,6 @@ function Canvas({ file, image }) {
     let cellSize = currentSize.cellSize;
     
   }, [currentSize]);
-
-  const changeCanvasSize = (size) => {
-    setCurrentSize(size);
-  };
 
    // Functions for brightness, contrast and saturation adjustments
    const applyImageAdjustments = (imageData, brightness, contrast, saturation) => {
@@ -181,20 +179,8 @@ function Canvas({ file, image }) {
             setBrightness={(brightness) => setBrightness(brightness)}
             setContrast={(contrast) => setContrast(contrast)}
             setSaturation={(saturation) => setSaturation(saturation)}
-            // handleBrightnessChange={handleBrightnessChange}
-            // handleContrastChange={handleContrastChange}
-            // handleSaturationChange={handleSaturationChange}
-             />
-          <div className="zoom-container">
-            <h2>Förstora arbetsytan</h2>
-            <div className="btn-container">
-              {Object.keys(canSizes[0]).map((sizeKey, index) => (
-                <button className="zoom-btn" key={index} onClick={() => changeCanvasSize(canSizes[0][sizeKey])}>
-                  {sizeKey}
-                </button>
-              ))}
-            </div>
-          </div>
+          />
+          <ZoomButtons setCurrentSize={(currentSize) => setCurrentSize(currentSize)} canSizes={canSizes} />
         </div>
         <div className="display">
           <canvas className="canvas" ref={canvasRef} />

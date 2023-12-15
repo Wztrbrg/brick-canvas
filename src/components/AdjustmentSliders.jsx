@@ -1,4 +1,5 @@
 import React from "react";
+import "./adjustmentsliders.css"
 
 function AdjustmentSliders({ 
   setBrightness, 
