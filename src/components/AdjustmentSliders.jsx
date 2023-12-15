@@ -1,13 +1,29 @@
 import React from "react";
 
 function AdjustmentSliders({ 
-  brightness, 
-  contrast, 
-  saturation, 
-  handleBrightnessChange, 
-  handleContrastChange, 
-  handleSaturationChange }) {
+  setBrightness, 
+  setContrast, 
+  setSaturation,
+}) {
  
+  // Function to handle brightness slider change
+  const handleBrightnessChange = (event) => {
+    const { value } = event.target;
+    setBrightness(Number(value));
+  };
+
+  // Function to handle contrast slider change
+  const handleContrastChange = (event) => {
+    const { value } = event.target;
+    setContrast(Number(value));
+  };
+
+  // Function to handle saturation slider change
+  const handleSaturationChange = (event) => {
+    const { value } = event.target;
+    setSaturation(Number(value));
+  
+  };
 
 
   return (
@@ -20,7 +36,6 @@ function AdjustmentSliders({
           id="brightness"
           min="-100"
           max="100"
-          value={brightness}
           onChange={handleBrightnessChange}
         />
 
@@ -31,7 +46,6 @@ function AdjustmentSliders({
           min="0"
           max="2"
           step="0.1"
-          value={contrast}
           onChange={handleContrastChange}
         />
 
@@ -42,7 +56,6 @@ function AdjustmentSliders({
           min="0"
           max="2"
           step="0.1"
-          value={saturation}
           onChange={handleSaturationChange}
         />
       </div>

@@ -51,25 +51,6 @@ function Canvas({ file, image }) {
     setCurrentSize(size);
   };
 
-   // Function to handle brightness slider change
-   const handleBrightnessChange = (event) => {
-    const { value } = event.target;
-    setBrightness(Number(value));
-  };
-
-  // Function to handle contrast slider change
-  const handleContrastChange = (event) => {
-    const { value } = event.target;
-    setContrast(Number(value));
-  };
-
-  // Function to handle saturation slider change
-  const handleSaturationChange = (event) => {
-    const { value } = event.target;
-    setSaturation(Number(value));
-  
-  };
-
    // Functions for brightness, contrast and saturation adjustments
    const applyImageAdjustments = (imageData, brightness, contrast, saturation) => {
     const data = imageData.data;
@@ -197,12 +178,12 @@ function Canvas({ file, image }) {
       <div className="canvas-wrapper">
         <div className="sidebar">
           <AdjustmentSliders 
-            brightness={brightness} 
-            contrast={contrast} 
-            saturation={saturation}
-            handleBrightnessChange={handleBrightnessChange}
-            handleContrastChange={handleContrastChange}
-            handleSaturationChange={handleSaturationChange}
+            setBrightness={(brightness) => setBrightness(brightness)}
+            setContrast={(contrast) => setContrast(contrast)}
+            setSaturation={(saturation) => setSaturation(saturation)}
+            // handleBrightnessChange={handleBrightnessChange}
+            // handleContrastChange={handleContrastChange}
+            // handleSaturationChange={handleSaturationChange}
              />
           <div className="zoom-container">
             <h2>Förstora arbetsytan</h2>
