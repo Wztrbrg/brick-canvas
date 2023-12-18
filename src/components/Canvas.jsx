@@ -15,6 +15,7 @@ import {
   calculateDominantColor } from "../utils/canvasUtils";
 import AdjustmentSliders from "./AdjustmentSliders";
 import ZoomButtons from "./ZoomButtons";
+import { createItem, getItems } from "../utils/dbUtils";
 
 
 function Canvas({ file, image, onCancel }) {
@@ -39,6 +40,37 @@ function Canvas({ file, image, onCancel }) {
   const [brightness, setBrightness] = useState(0);
   const [contrast, setContrast] = useState(1);
   const [saturation, setSaturation] = useState(1);
+  //States for db
+  const [item, setItem] = useState();
+  const [items, setItems] = useState([]);
+
+  //Used for fetching db
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await getItems();
+      console.log("fetch data;m", result);
+      setItems(result);
+    }
+    fetchData();
+  }, []);
+
+  // const saveImageURL = (e) => {
+  //   const dataURL = canvasRef.current.toDataURL();
+  //   setItem({ ...item, image: dataURL });
+  //   console.log(item)
+  // }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const dataURL = canvasRef.current.toDataURL();
+    const result = await createItem({ image: dataURL });
+    setItems([...items, result]);
+    setItem(dataURL)
+  }
+
+  const handleCancel = () => {
+    onCancel();
+  }
   
   //Used for zooming in/out on canvas
   useEffect(() => {
@@ -48,10 +80,6 @@ function Canvas({ file, image, onCancel }) {
     let cellSize = currentSize.cellSize;
     
   }, [currentSize]);
-
-  const handleCancel = () => {
-    onCancel();
-  }
 
    // Functions for brightness, contrast and saturation adjustments
    const applyImageAdjustments = (imageData, brightness, contrast, saturation) => {
@@ -165,7 +193,7 @@ function Canvas({ file, image, onCancel }) {
        
 
         innerDrawGrid(ctx);
-        gridOverlay(ctx);
+        // gridOverlay(ctx);
       };
       img.src = file;
     } else {
@@ -174,6 +202,7 @@ function Canvas({ file, image, onCancel }) {
   }
 
   const canvasRef = useCanvas(draw);
+
 
   return (
     <>
@@ -188,13 +217,14 @@ function Canvas({ file, image, onCancel }) {
           <ZoomButtons setCurrentSize={(currentSize) => setCurrentSize(currentSize)} canSizes={canSizes} />
           <div className="divider"></div>
           <div className="action-btn-container">
-            <button className="action-btn">Fortsätt</button>
+            <button onClick={handleSubmit} className="action-btn">Fortsätt</button>
             <button onClick={handleCancel} className="cancel-btn">Börja Om</button>
           </div>
         </div>
         <div className="display">
           <canvas className="canvas" ref={canvasRef} />
         </div>
+        <img src={item} />
       </div>
     </>
   );

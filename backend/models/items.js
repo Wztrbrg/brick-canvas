@@ -2,12 +2,12 @@ import mongoose from "mongoose";
 
 const itemSchema = mongoose.Schema(
   {
-    title: String,
     image: String,
   },
-  { timestamps: true }
+  { timestamps: true },
+  { collection: "orders" }
 );
 
-const Item = mongoose.model("Item", itemSchema);
+const Item = mongoose.model("order", itemSchema);
 
 export default Item;
