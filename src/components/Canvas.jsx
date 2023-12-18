@@ -40,32 +40,12 @@ function Canvas({ file, image, onCancel }) {
   const [brightness, setBrightness] = useState(0);
   const [contrast, setContrast] = useState(1);
   const [saturation, setSaturation] = useState(1);
-  //States for db
-  const [item, setItem] = useState();
-  const [items, setItems] = useState([]);
-
-  //Used for fetching db
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await getItems();
-      console.log("fetch data;m", result);
-      setItems(result);
-    }
-    fetchData();
-  }, []);
-
-  // const saveImageURL = (e) => {
-  //   const dataURL = canvasRef.current.toDataURL();
-  //   setItem({ ...item, image: dataURL });
-  //   console.log(item)
-  // }
+  const [curCanvas, setCurCanvas] = useState();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const dataURL = canvasRef.current.toDataURL();
-    const result = await createItem({ image: dataURL });
-    setItems([...items, result]);
-    setItem(dataURL)
+    // const dataURL = canvasRef.current.toDataURL();
+    await createItem({ image: curCanvas });
   }
 
   const handleCancel = () => {
@@ -193,7 +173,8 @@ function Canvas({ file, image, onCancel }) {
        
 
         innerDrawGrid(ctx);
-        // gridOverlay(ctx);
+        setCurCanvas(canvasRef.current.toDataURL());
+        gridOverlay(ctx);
       };
       img.src = file;
     } else {
@@ -224,7 +205,6 @@ function Canvas({ file, image, onCancel }) {
         <div className="display">
           <canvas className="canvas" ref={canvasRef} />
         </div>
-        <img src={item} />
       </div>
     </>
   );
