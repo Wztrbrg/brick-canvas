@@ -9,6 +9,7 @@ Fills each cell with their respective dominant (closest) color.
 */
 
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useCanvas from "../hooks/useCanvas";
 import "./canvas.css"
 import { 
@@ -16,6 +17,7 @@ import {
 import AdjustmentSliders from "./AdjustmentSliders";
 import ZoomButtons from "./ZoomButtons";
 import { createItem } from "../utils/dbUtils";
+import { useCurCanvas } from "../context/CurCanvasContext";
 
 
 function Canvas({ file, image, onCancel }) {
@@ -40,12 +42,17 @@ function Canvas({ file, image, onCancel }) {
   const [brightness, setBrightness] = useState(0);
   const [contrast, setContrast] = useState(1);
   const [saturation, setSaturation] = useState(1);
-  const [curCanvas, setCurCanvas] = useState();
+  const { curCanvas, setCurCanvas } = useCurCanvas();
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const dataURL = canvasRef.current.toDataURL();
+    // await createItem({ image: curCanvas });    
     await createItem({ image: curCanvas });
+
+    navigate("/confirm");
+
   }
 
   const handleCancel = () => {
