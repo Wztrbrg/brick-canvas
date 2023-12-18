@@ -104,7 +104,7 @@ const calculateDominantColor = (imageData) => {
   // Find the closest color match
   const closestColor = findClosestColor(dominantColor);
 
-  return { closestColor, colorCount };
+  return closestColor;
 };
 
 export { calculateDominantColor };

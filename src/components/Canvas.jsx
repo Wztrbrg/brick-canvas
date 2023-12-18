@@ -134,12 +134,11 @@ function Canvas({ file, image, onCancel }) {
           const cellImageData = context.getImageData(x, y, currentSize.cellSize, currentSize.cellSize);
           
           //calculate dominant color of each cell in the grid
-          const { closestColor, colorCount } = calculateDominantColor(cellImageData);
+          const dominantColor = calculateDominantColor(cellImageData);
 
           //fill each cell with their respective dominant color
-          context.fillStyle = closestColor;
+          context.fillStyle = dominantColor;
           context.fillRect(x, y, currentSize.cellSize, currentSize.cellSize);
-          console.log("Color count: ", colorCount);
         }
       }
     };
