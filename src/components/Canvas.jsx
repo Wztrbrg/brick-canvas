@@ -15,7 +15,7 @@ import {
   calculateDominantColor } from "../utils/canvasUtils";
 import AdjustmentSliders from "./AdjustmentSliders";
 import ZoomButtons from "./ZoomButtons";
-import { createItem, getItems } from "../utils/dbUtils";
+import { createItem } from "../utils/dbUtils";
 
 
 function Canvas({ file, image, onCancel }) {
@@ -134,12 +134,12 @@ function Canvas({ file, image, onCancel }) {
           const cellImageData = context.getImageData(x, y, currentSize.cellSize, currentSize.cellSize);
           
           //calculate dominant color of each cell in the grid
-          const dominantColor = calculateDominantColor(cellImageData);
+          const { closestColor, colorCount } = calculateDominantColor(cellImageData);
 
           //fill each cell with their respective dominant color
-          context.fillStyle = dominantColor;
+          context.fillStyle = closestColor;
           context.fillRect(x, y, currentSize.cellSize, currentSize.cellSize);
-
+          console.log("Color count: ", colorCount);
         }
       }
     };
