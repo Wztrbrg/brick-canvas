@@ -16,7 +16,7 @@ function LandingPage() {
             <h2 className="landing-sub-heading">Såhär funkar det</h2>
             <p className="landing-para">1. Ladda upp en bild</p>
             <p className="landing-para">2. Justera bilden efter önskemål</p>
-            <p className="landing-para">3. Klart! klicka dig vidare för att beställa hem ditt personliga Lego-kit</p>   
+            <p className="landing-para">3. Klart! Klicka dig vidare för att beställa hem ditt personliga Lego-kit</p>   
           </div>
           <Link to={"canvas"} className="landing-btn">Börja Här!</Link>
         </div>
