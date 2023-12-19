@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const orderSchema = mongoose.Schema(
   {
+    mail: String,
     image: String,
     pieces: Array,
   },

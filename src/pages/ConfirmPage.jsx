@@ -24,6 +24,7 @@ function ConfirmPage() {
 
   const { curCanvas } = useCurCanvas();
   const [currentSize, setCurrentSize] = useState(canSizes[0]["-"]);
+  const [user, setUser] = useState("");
   const [colorCount, setColorCount] = useState([
     {
       "color": "",
@@ -31,6 +32,7 @@ function ConfirmPage() {
       "total": "",
     }
   ]);
+  
 
   //Predefined colors with id's
   const colorIDMap = [
@@ -138,10 +140,9 @@ function ConfirmPage() {
     setColorCount(colorsArray); // Update the state with the new color count array
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createOrder({ image: curCanvas, pieces: colorCount });
+    await createOrder({ mail: user, image: curCanvas, pieces: colorCount  });
 
     var total = colorCount.reduce((accum,item) => accum + item.total, 0)
 
@@ -150,6 +151,7 @@ function ConfirmPage() {
       console.log("Färg: ", color.color, "Antal: ", color.total);
     });
     console.log("Totalt antal legobitar: ", total);
+    console.log(user);
   }
 
 
@@ -183,6 +185,7 @@ function ConfirmPage() {
       <div className="confirm-page-wrapper">
         <h1>Färdig Bild</h1>
         <canvas ref={canvasRef} />
+        <input type="mail" onChange={(e) => setUser(e.target.value)} />
         <button onClick={handleSubmit}>Lägg i Kundvagn</button>
       </div>
     </>
