@@ -4,6 +4,7 @@ import { useCurCanvas } from "../context/CurCanvasContext";
 import useCanvas from "../hooks/useCanvas";
 import "./confirmpage.css";
 import ZoomButtons from "../components/ZoomButtons";
+import { createItem } from "../api/api";
 
 function ConfirmPage() {
   //Initial canvas sizes, scaling to a 4x3 x (24x24 baseplates)
@@ -32,7 +33,7 @@ function ConfirmPage() {
     }
   ]);
 
-
+  //Predefined colors with id's
   const colorIDMap = [
     { "color": "rgba(244, 244, 244, 255)", "ID": 1 },
     { "color": "rgba(208, 206, 201, 255)", "ID": 2 },
@@ -90,7 +91,8 @@ function ConfirmPage() {
   }, [currentSize]);
 
 
-
+  //Counting colors in image and compares to colorIDMap array
+  //and assign ID's accordingly
   const countColorsInCells = (ctx) => {
     const aspectRatio = ctx.canvas.width / ctx.canvas.height;
     let imgWidth = ctx.canvas.width;
@@ -138,11 +140,11 @@ function ConfirmPage() {
   };
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    await createItem({ image: curCanvas, pieces: colorCount });
+    console.log(curCanvas)
     console.log(colorCount);
-    console.log(colorIDMap)    
   }
 
 

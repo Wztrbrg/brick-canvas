@@ -49,7 +49,7 @@ function Canvas({ file, image, onCancel }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // await createItem({ image: curCanvas });    
-    await createItem({ image: curCanvas });
+    
 
     navigate("/confirm");
 
