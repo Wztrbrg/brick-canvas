@@ -15,9 +15,6 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use("/orders", orderRoutes);
-app.get("/", (req, res) => {
-  res.send("Hello");
-});
 
 mongoose
   .connect(mongodb)
