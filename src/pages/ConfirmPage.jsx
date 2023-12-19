@@ -34,50 +34,50 @@ function ConfirmPage() {
 
 
   const colorIDMap = [
-    { "color": "rgba(244, 244, 244, 1)", "ID": 1 },
-    { "color": "rgba(208, 206, 201, 1)", "ID": 2 },
-    { "color": "rgba(178, 180, 178, 1)", "ID": 3 },
-    { "color": "rgba(140, 138, 136, 1)", "ID": 4 },
-    { "color": "rgba(100, 100, 100, 1)", "ID": 5 },
-    { "color": "rgba(22, 22, 22, 1)", "ID": 6 },
-    { "color": "rgba(0, 187, 220, 1)", "ID": 7 },
-    { "color": "rgba(62, 135, 203, 1)", "ID": 8 },
-    { "color": "rgba(51, 63, 72, 1)", "ID": 9 },
-    { "color": "rgba(0, 53, 80, 1)", "ID": 10 },
-    { "color": "rgba(221, 121, 117, 1)", "ID": 11 },
-    { "color": "rgba(197, 70, 68, 1)", "ID": 12 },
-    { "color": "rgba(218, 41, 28, 1)", "ID": 13 },
-    { "color": "rgba(177, 162, 202, 1)", "ID": 14 },
-    { "color": "rgba(142, 127, 174, 1)", "ID": 15 },
-    { "color": "rgba(236, 208, 181, 1)", "ID": 16 },
-    { "color": "rgba(240, 196, 160, 1)", "ID": 17 },
-    { "color": "rgba(250, 170, 141, 1)", "ID": 18 },
-    { "color": "rgba(248, 173, 109, 1)", "ID": 19 },
-    { "color": "rgba(229, 158, 109, 1)", "ID": 20 },
-    { "color": "rgba(189, 154, 122, 1)", "ID": 21 },
-    { "color": "rgba(181, 129, 80, 1)", "ID": 22 },
-    { "color": "rgba(255, 105, 0e, 1)", "ID": 23 },
-    { "color": "rgba(166, 85, 35, 1)", "ID": 24 },
-    { "color": "rgba(105, 63, 35, 1)", "ID": 25 },
-    { "color": "rgba(78, 53, 36, 1)", "ID": 26 },
-    { "color": "rgba(120, 78, 144, 1)", "ID": 27 },
-    { "color": "rgba(248, 229, 154, 1)", "ID": 28 },
-    { "color": "rgba(213, 200, 151, 1)", "ID": 29 },
-    { "color": "rgba(239, 182, 97, 1)", "ID": 30 },
-    { "color": "rgba(255, 209, 0, 1)", "ID": 31 },
-    { "color": "rgba(255, 163, 0), 1)", "ID": 32 },
-    { "color": "rgba(229, 155, 220, 1)", "ID": 33 },
-    { "color": "rgba(177, 78, 181, 1)", "ID": 34 },
-    { "color": "rgba(174, 164, 111, 1)", "ID": 35 },
-    { "color": "rgba(174, 184, 98, 1)", "ID": 36 },
-    { "color": "rgba(181, 189, 0, 1)", "ID": 37 },
-    { "color": "rgba(239, 215, 229, 1)", "ID": 38 },
-    { "color": "rgba(94, 126, 41, 1)", "ID": 39 },
-    { "color": "rgba(231, 147, 183, 1)", "ID": 40 },
-    { "color": "rgba(207, 87, 138, 1)", "ID": 41 },
-    { "color": "rgba(51, 85, 37, 1)", "ID": 42 },
-    { "color": "rgba(45, 200, 77, 1)", "ID": 43 },
-    { "color": "rgba(0, 154, 68, 1)", "ID": 44 },
+    { "color": "rgba(244, 244, 244, 255)", "ID": 1 },
+    { "color": "rgba(208, 206, 201, 255)", "ID": 2 },
+    { "color": "rgba(178, 180, 178, 255)", "ID": 3 },
+    { "color": "rgba(140, 138, 136, 255)", "ID": 4 },
+    { "color": "rgba(100, 100, 100, 255)", "ID": 5 },
+    { "color": "rgba(22, 22, 22, 255)", "ID": 6 },
+    { "color": "rgba(0, 187, 220, 255)", "ID": 7 },
+    { "color": "rgba(62, 135, 203, 255)", "ID": 8 },
+    { "color": "rgba(51, 63, 72, 255)", "ID": 9 },
+    { "color": "rgba(0, 53, 80, 255)", "ID": 10 },
+    { "color": "rgba(221, 121, 117, 255)", "ID": 11 },
+    { "color": "rgba(197, 70, 68, 255)", "ID": 12 },
+    { "color": "rgba(218, 41, 28, 255)", "ID": 13 },
+    { "color": "rgba(177, 162, 202, 255)", "ID": 14 },
+    { "color": "rgba(142, 127, 174, 255)", "ID": 15 },
+    { "color": "rgba(236, 208, 181, 255)", "ID": 16 },
+    { "color": "rgba(240, 196, 160, 255)", "ID": 17 },
+    { "color": "rgba(250, 170, 141, 255)", "ID": 18 },
+    { "color": "rgba(248, 173, 109, 255)", "ID": 19 },
+    { "color": "rgba(229, 158, 109, 255)", "ID": 20 },
+    { "color": "rgba(189, 154, 122, 255)", "ID": 21 },
+    { "color": "rgba(181, 129, 80, 255)", "ID": 22 },
+    { "color": "rgba(255, 105, 0e, 255)", "ID": 23 },
+    { "color": "rgba(166, 85, 35, 255)", "ID": 24 },
+    { "color": "rgba(105, 63, 35, 255)", "ID": 25 },
+    { "color": "rgba(78, 53, 36, 255)", "ID": 26 },
+    { "color": "rgba(120, 78, 144, 255)", "ID": 27 },
+    { "color": "rgba(248, 229, 154, 255)", "ID": 28 },
+    { "color": "rgba(213, 200, 151, 255)", "ID": 29 },
+    { "color": "rgba(239, 182, 97, 255)", "ID": 30 },
+    { "color": "rgba(255, 209, 0, 255)", "ID": 31 },
+    { "color": "rgba(255, 163, 0), 255)", "ID": 32 },
+    { "color": "rgba(229, 155, 220, 255)", "ID": 33 },
+    { "color": "rgba(177, 78, 181, 255)", "ID": 34 },
+    { "color": "rgba(174, 164, 111, 255)", "ID": 35 },
+    { "color": "rgba(174, 184, 98, 255)", "ID": 36 },
+    { "color": "rgba(181, 189, 0, 255)", "ID": 37 },
+    { "color": "rgba(239, 215, 229, 255)", "ID": 38 },
+    { "color": "rgba(94, 126, 41, 255)", "ID": 39 },
+    { "color": "rgba(231, 147, 183, 255)", "ID": 40 },
+    { "color": "rgba(207, 87, 138, 255)", "ID": 41 },
+    { "color": "rgba(51, 85, 37, 255)", "ID": 42 },
+    { "color": "rgba(45, 200, 77, 255)", "ID": 43 },
+    { "color": "rgba(0, 154, 68, 255)", "ID": 44 },
   ];
 
   //Used for zooming in/out on canvas
@@ -115,20 +115,34 @@ function ConfirmPage() {
       }
     }
   
-    // Convert the temporary object to an array of objects for the structure you need
-    const colorsArray = Object.keys(tempColorCount).map((color) => ({
-      color,
-      total: tempColorCount[color],
-    }));
+    // Matching colors and assigning IDs
+    const colorsArray = Object.keys(tempColorCount).map((color) => {
+      const colorObj = {
+        color,
+        total: tempColorCount[color],
+        ID: -1, // Initialize ID to -1 as default if no match is found
+      };
   
-    // Update the state with the new color count array
-    setColorCount(colorsArray); // Assuming you have a state setter function for colorCount
+      // Finding matching color in colorIDMap by direct string comparison
+      const matchingColor = colorIDMap.find((item) => item.color === colorObj.color);
+  
+      if (matchingColor) {
+        colorObj.ID = matchingColor.ID; // Assigning the ID from colorIDMap
+      }
+  
+      
+      return colorObj;
+    });
+  
+    setColorCount(colorsArray); // Update the state with the new color count array
   };
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(colorCount);    
+    
+    console.log(colorCount);
+    console.log(colorIDMap)    
   }
 
 
