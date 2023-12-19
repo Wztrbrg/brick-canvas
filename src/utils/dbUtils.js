@@ -1,18 +1,18 @@
 import * as api from "../api/api.js";
 
 //Code for storing in database
-export const getItems = async () => {
+export const getOrders = async () => {
   try {
-    const { data } = await api.getItems();
+    const { data } = await api.getOrders();
     return data;
   } catch (error) {
     console.log(error);
   }
 };
 
-export const createItem = async (image) => {
+export const createOrder = async (order) => {
   try {
-    const { data } = await api.createItem(image);
+    const { data } = await api.createOrder(order);
     return data;
   } catch (error) {
     console.log(error);

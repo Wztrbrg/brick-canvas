@@ -4,7 +4,7 @@ import { useCurCanvas } from "../context/CurCanvasContext";
 import useCanvas from "../hooks/useCanvas";
 import "./confirmpage.css";
 import ZoomButtons from "../components/ZoomButtons";
-import { createItem } from "../api/api";
+import { createOrder } from "../api/api";
 
 function ConfirmPage() {
   //Initial canvas sizes, scaling to a 4x3 x (24x24 baseplates)
@@ -142,7 +142,7 @@ function ConfirmPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createItem({ image: curCanvas, pieces: colorCount });
+    await createOrder({ image: curCanvas, pieces: colorCount });
     console.log(curCanvas)
     console.log(colorCount);
   }

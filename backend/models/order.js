@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const itemSchema = mongoose.Schema(
+const orderSchema = mongoose.Schema(
   {
     image: String,
     pieces: Array,
@@ -9,6 +9,6 @@ const itemSchema = mongoose.Schema(
   { collection: "orders" }
 );
 
-const Item = mongoose.model("order", itemSchema);
+const Order = mongoose.model("order", orderSchema);
 
-export default Item;
+export default Order;
