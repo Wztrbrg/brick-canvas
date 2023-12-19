@@ -3,7 +3,6 @@ import Header from "../components/Header";
 import { useCurCanvas } from "../context/CurCanvasContext";
 import useCanvas from "../hooks/useCanvas";
 import "./confirmpage.css";
-import ZoomButtons from "../components/ZoomButtons";
 import { createOrder } from "../api/api";
 
 function ConfirmPage() {
@@ -81,7 +80,7 @@ function ConfirmPage() {
     { "color": "rgba(0, 154, 68, 255)", "ID": 44 },
   ];
 
-  //Used for zooming in/out on canvas
+  //Used for canvas sizing
   useEffect(() => {
     const canvas = canvasRef.current;
     canvas.width = currentSize.width;
@@ -143,8 +142,14 @@ function ConfirmPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await createOrder({ image: curCanvas, pieces: colorCount });
-    console.log(curCanvas)
-    console.log(colorCount);
+
+    var total = colorCount.reduce((accum,item) => accum + item.total, 0)
+
+    console.log("Lego-bitar:");
+    colorCount.forEach(color => {
+      console.log("Färg: ", color.color, "Antal: ", color.total);
+    });
+    console.log("Totalt antal legobitar: ", total);
   }
 
 
@@ -178,7 +183,6 @@ function ConfirmPage() {
       <div className="confirm-page-wrapper">
         <h1>Färdig Bild</h1>
         <canvas ref={canvasRef} />
-        <ZoomButtons setCurrentSize={(currentSize) => setCurrentSize(currentSize)} canSizes={canSizes}/>
         <button onClick={handleSubmit}>Lägg i Kundvagn</button>
       </div>
     </>
