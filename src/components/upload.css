@@ -10,7 +10,7 @@
 .input-content-wrapper {
   background-color: rgb(255, 250, 250);
   width: 800px;
-  min-height: 900px;
+  min-height: 200px;
   padding: 72px;
   display: flex;
   flex-direction: column;

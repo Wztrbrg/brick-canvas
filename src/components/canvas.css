@@ -12,7 +12,7 @@
   border-right: 1px solid rgba(176, 168, 168, 0.326);
   display: flex;
   flex-direction: column;
-  gap: 56px;
+  justify-content: space-between;
 }
 
 .action-btn-container {
@@ -82,6 +82,7 @@
 .canvas {
   border: 3px solid rgb(65, 57, 57);
   box-shadow: 5px 5px rgb(65, 57, 57);
+  max-height: calc(100vh - 128px);
 }
 
 .divider {
