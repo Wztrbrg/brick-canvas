@@ -189,13 +189,14 @@ function ConfirmPage() {
             <p className="left-section-para">Om du är nöjd med resultatet kan du gå vidare till betällning</p>
             <canvas className="confirm-canvas" ref={canvasRef} />
           </div>
-          <div className="divider"></div>
+
           <div className="right-section">
             <div className="right-section-header">
               <h2 className="right-section-heading">Detta ingår i ditt lego-kit</h2>
               <p className="right-section-para">Här hittar du allt du behöver för att skapa din personliga lego-tavla</p>
             </div>
             <div className="card-container">
+
               <div className="card">
                 <img src={curCanvas} alt="Användarens redigerade bild" />
                 <div className="text">
@@ -204,6 +205,7 @@ function ConfirmPage() {
                 </div>
                 <h3 className="amount">1 st</h3>
               </div>
+
               <div className="card">
                 <img src={baseplate} alt="lego 24x24 basplatta" />
                 <div className="text">
@@ -212,6 +214,7 @@ function ConfirmPage() {
                 </div>
                 <h3 className="amount">12 st</h3>
               </div>
+
               <div className="card">
                 <img src={legopiece} alt="legobit 1x1" />
                 <div className="text">
@@ -220,6 +223,7 @@ function ConfirmPage() {
                 </div>
                 <h3 className="amount">6912 st</h3>
               </div>
+              
             </div>
             <button className="action-btn" onClick={handleSubmit}>Lägg i Kundvagn</button>
           </div>
