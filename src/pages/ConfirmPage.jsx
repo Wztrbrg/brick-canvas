@@ -4,6 +4,8 @@ import { useCurCanvas } from "../context/CurCanvasContext";
 import useCanvas from "../hooks/useCanvas";
 import "./confirmpage.css";
 import { createOrder } from "../api/api";
+import baseplate from "../assets/baseplate.webp";
+import legopiece from "../assets/legopiece.jpeg";
 
 function ConfirmPage() {
   //Initial canvas sizes, scaling to a 4x3 x (24x24 baseplates)
@@ -24,7 +26,6 @@ function ConfirmPage() {
 
   const { curCanvas } = useCurCanvas();
   const [currentSize, setCurrentSize] = useState(canSizes[0]["-"]);
-  const [user, setUser] = useState("");
   const [colorCount, setColorCount] = useState([
     {
       "color": "",
@@ -142,7 +143,7 @@ function ConfirmPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createOrder({ mail: user, image: curCanvas, pieces: colorCount  });
+    await createOrder({ image: curCanvas, pieces: colorCount  });
 
     var total = colorCount.reduce((accum,item) => accum + item.total, 0)
 
@@ -151,7 +152,6 @@ function ConfirmPage() {
       console.log("Färg: ", color.color, "Antal: ", color.total);
     });
     console.log("Totalt antal legobitar: ", total);
-    console.log(user);
   }
 
 
@@ -183,10 +183,47 @@ function ConfirmPage() {
     <>
       <Header />
       <div className="confirm-page-wrapper">
-        <h1>Färdig Bild</h1>
-        <canvas ref={canvasRef} />
-        <input type="mail" onChange={(e) => setUser(e.target.value)} />
-        <button onClick={handleSubmit}>Lägg i Kundvagn</button>
+        <div className="confirm-content">
+          <div className="left-section">
+            <h2 className="left-section-heading">Här är din färdiga bild</h2>
+            <p className="left-section-para">Om du är nöjd med resultatet kan du gå vidare till betällning</p>
+            <canvas className="confirm-canvas" ref={canvasRef} />
+          </div>
+          <div className="divider"></div>
+          <div className="right-section">
+            <div className="right-section-header">
+              <h2 className="right-section-heading">Detta ingår i ditt lego-kit</h2>
+              <p className="right-section-para">Här hittar du allt du behöver för att skapa din personliga lego-tavla</p>
+            </div>
+            <div className="card-container">
+              <div className="card">
+                <img src={curCanvas} alt="Användarens redigerade bild" />
+                <div className="text">
+                  <h2 className="title">Bakgrundsmall</h2>
+                  <p className="info">Din personliga, "legofierade", bild</p>
+                </div>
+                <h3 className="amount">1 st</h3>
+              </div>
+              <div className="card">
+                <img src={baseplate} alt="lego 24x24 basplatta" />
+                <div className="text">
+                  <h2 className="title">Basplatta 24x24 - 4x3</h2>
+                  <p className="info">Lego-basplatta, rymmer 24x24 legobitar (1x1). Din lego-tavla består av 4x3 basplattor</p>
+                </div>
+                <h3 className="amount">12 st</h3>
+              </div>
+              <div className="card">
+                <img src={legopiece} alt="legobit 1x1" />
+                <div className="text">
+                  <h2 className="title">Legobit 1x1</h2>
+                  <p className="info">Legobitar, 1x1, innehåller alla färger som behövs för att lägga din lego-tavla</p>
+                </div>
+                <h3 className="amount">6912 st</h3>
+              </div>
+            </div>
+            <button className="action-btn" onClick={handleSubmit}>Lägg i Kundvagn</button>
+          </div>
+        </div>
       </div>
     </>
   );
