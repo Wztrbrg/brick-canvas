@@ -1,6 +1,6 @@
 .confirm-page-wrapper {
   width: 100%;
-  min-height: calc(100vh - 104px);
+  min-height: calc(100vh - 119px);
   display: flex;
   justify-content: center;
 }
@@ -73,9 +73,10 @@
   position: relative;
   display: flex;
   border: 1px solid rgba(176, 168, 168, 0.326);
+  border-radius: 8px;
   background-color: rgba(236, 236, 236, 0.245);
-  padding: 8px;
-  gap: 8px;
+  padding: 16px;
+  gap: 16px;
 }
 
 .right-section .card img {
@@ -83,13 +84,24 @@
   height: 128px;
   object-fit: cover;
   border: 1px solid rgba(176, 168, 168, 0.326);
+  border-radius: 4px;
+}
+
+.right-section .card .title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .right-section .card .info {
+  font-size: 16px;
+  font-weight: 500;
   max-width: 90%;
 }
 
 .right-section .card .amount {
   position: absolute;
-  right: 8px;
+  right: 16px;
+  font-size: 18px;
+  font-weight: 600;
 }

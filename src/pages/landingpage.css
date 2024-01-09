@@ -1,5 +1,5 @@
 .landing-page-wrapper {
-  min-height: calc(100vh - 104px);
+  min-height: calc(100vh - 119px);
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -55,7 +55,7 @@
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: rgb(255, 250, 250);
+  color: rgb(65, 57, 57);
   font-size: 18px;
   font-weight: 700;
   text-decoration: none;

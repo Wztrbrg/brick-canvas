@@ -1,7 +1,7 @@
 .canvas-wrapper {
   display: flex;
   width: 100%;
-  height: calc(100vh - 104px);
+  height: calc(100vh - 119px);
   background-color: rgb(255, 250, 250);
 }
 
