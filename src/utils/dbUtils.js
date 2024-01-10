@@ -18,3 +18,21 @@ export const createOrder = async (order) => {
     console.log(error);
   }
 };
+
+export const getOrderItems = async () => {
+  try {
+    const { data } = await api.getOrderItems();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const createOrderItem = async (orderItem) => {
+  try {
+    const { data } = await api.createOrderItem(orderItem);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};

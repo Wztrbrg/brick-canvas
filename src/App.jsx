@@ -6,6 +6,7 @@ import ConfirmPage from "./pages/ConfirmPage"
 import OrderPage from "./pages/OrderPage";
 import { CurCanvasProvider } from "./context/CurCanvasContext";
 import { OrderIdProvider } from "./context/OrderIdContext";
+import ThanksPage from "./pages/ThanksPage";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
               <Route path="canvas" element={<CanvasPage />}></Route>
               <Route path="confirm" element={<ConfirmPage />}></Route>
               <Route path="order" element={<OrderPage />}></Route>
+              <Route path="thanks" element={<ThanksPage />}></Route>
             </Routes>
           </CurCanvasProvider>
         </OrderIdProvider>

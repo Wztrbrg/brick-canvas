@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import { useCurCanvas } from "../context/CurCanvasContext";
 import useCanvas from "../hooks/useCanvas";
 import "./confirmpage.css";
-import { createOrder } from "../api/api";
+import { createOrderItem } from "../api/api";
 import baseplate from "../assets/baseplate.webp";
 import legopiece from "../assets/legopiece.jpeg";
 import { useNavigate } from "react-router";
@@ -148,7 +148,7 @@ function ConfirmPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let res = await createOrder({ image: curCanvas, pieces: colorCount  });
+    let res = await createOrderItem({ image: curCanvas, pieces: colorCount  });
     let ORDER_ID = res.data._id;
     setOrderId(ORDER_ID);
 

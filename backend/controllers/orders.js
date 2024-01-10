@@ -1,16 +1,16 @@
-import OrderItem from "../models/order.js";
+import Order from "../models/order.js";
 export const getOrders = async (req, res) => {
   try {
-    const orderItem = await OrderItem.find();
-    res.status(200).json(orderItem);
+    const order = await Order.find();
+    res.status(200).json(order);
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
 };
 export const createOrder = async (req, res) => {
-  const orderItem = new OrderItem(req.body);
+  const order = new Order(req.body);
   try {
-    await orderItem.save();
-    res.status(201).json(orderItem);
+    await order.save();
+    res.status(201).json(order);
   } catch (error) {}
 };
