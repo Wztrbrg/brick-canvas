@@ -143,7 +143,7 @@ function ConfirmPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createOrder({ image: curCanvas, pieces: colorCount  });
+    let res = await createOrder({ image: curCanvas, pieces: colorCount  });
 
     var total = colorCount.reduce((accum,item) => accum + item.total, 0)
 
@@ -152,6 +152,7 @@ function ConfirmPage() {
       console.log("Färg: ", color.color, "Antal: ", color.total);
     });
     console.log("Totalt antal legobitar: ", total);
+    console.log(res.data._id);
   }
 
 
