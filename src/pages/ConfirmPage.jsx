@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Header from "../components/Header";
 import { useCurCanvas } from "../context/CurCanvasContext";
 import useCanvas from "../hooks/useCanvas";
@@ -6,8 +6,12 @@ import "./confirmpage.css";
 import { createOrder } from "../api/api";
 import baseplate from "../assets/baseplate.webp";
 import legopiece from "../assets/legopiece.jpeg";
+import { useNavigate } from "react-router";
+import OrderIdContext from "../context/OrderIdContext";
 
 function ConfirmPage() {
+  const navigate = useNavigate();
+
   //Initial canvas sizes, scaling to a 4x3 x (24x24 baseplates)
   const canSizes = [
     {
@@ -24,6 +28,7 @@ function ConfirmPage() {
     }
   ]
 
+  const { orderId, setOrderId } = useContext(OrderIdContext);
   const { curCanvas } = useCurCanvas();
   const [currentSize, setCurrentSize] = useState(canSizes[0]["-"]);
   const [colorCount, setColorCount] = useState([
@@ -144,6 +149,8 @@ function ConfirmPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let res = await createOrder({ image: curCanvas, pieces: colorCount  });
+    let ORDER_ID = res.data._id;
+    setOrderId(ORDER_ID);
 
     var total = colorCount.reduce((accum,item) => accum + item.total, 0)
 
@@ -152,9 +159,8 @@ function ConfirmPage() {
       console.log("Färg: ", color.color, "Antal: ", color.total);
     });
     console.log("Totalt antal legobitar: ", total);
-    console.log(res.data._id);
+    navigate("/order")
   }
-
 
   const draw = (ctx) => {
       const img = new Image();

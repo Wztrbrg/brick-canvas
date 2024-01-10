@@ -16,7 +16,6 @@ import {
   calculateDominantColor } from "../utils/canvasUtils";
 import AdjustmentSliders from "./AdjustmentSliders";
 import ZoomButtons from "./ZoomButtons";
-import { createItem } from "../utils/dbUtils";
 import { useCurCanvas } from "../context/CurCanvasContext";
 
 
