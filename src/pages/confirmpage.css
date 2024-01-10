@@ -10,7 +10,7 @@
   overflow-y: scroll;
   width: 100%;
   max-width: 1920px;
-  height: calc(100vh - 104px);
+  height: calc(100vh - 119px);
   display: flex;
   justify-content: center;
   align-items: center;
