@@ -6,14 +6,13 @@
 }
 
 .confirm-content {
-  position: fixed;
-  overflow-y: scroll;
   width: 100%;
   max-width: 1920px;
   height: calc(100vh - 119px);
+  min-height: 1042px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   gap: 16px;
   background-color: rgb(255, 250, 250);
   border-left: 1px solid rgba(176, 168, 168, 0.326);
@@ -24,13 +23,26 @@
   display: none;
 }
 
-.left-section,
+/* .left-section,
 .right-section {
-  width: 50%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 128px;
+  /* padding: 128px; */
+
+
+.left-section {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  padding: 36px;
+}
+
+.right-section {
+  width: 40%;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
 }
 
 .confirm-content .divider {
@@ -41,6 +53,7 @@
 .confirm-canvas {
   border: 3px solid rgb(65, 57, 57);
   box-shadow: 5px 5px rgb(65, 57, 57);
+  /* max-height: calc(100vh - 128px); */
   align-self: center;
 }
 
@@ -56,10 +69,6 @@
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 36px;
-}
-
-.right-section {
-  justify-content: space-between;
 }
 
 .card-container {
