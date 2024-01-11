@@ -29,16 +29,43 @@
 
 .thanks-heading {
   font-size: 48px;
-  font-weight: 800;
-  /* text-align: center; */
+  font-weight: 900;
 }
 
 .thanks-subheading {
   font-size: 24px;
   font-weight: 600;
-  /* text-align: center; */
 }
 
 .thanks-header .landing-btn {
   width: 100%;
+}
+
+@media (max-width: 800px) {
+  .thanks-content {
+    width: 100%;
+    height: calc(100vh - 77px);
+    box-shadow: none;
+    border-radius: 0;
+    justify-content: center;
+    padding: 8px;
+    gap: 16px;
+  }
+
+  .thanks-header {
+    gap: 16px;
+  }
+
+  .thanks-heading {
+    font-size: 48px;
+  }
+
+  .thanks-subheading {
+    font-size: 20px;
+  }
+
+  .landing-btn {
+    padding: 8px;
+    font-size: 16px;
+  }
 }

@@ -88,3 +88,63 @@
 .divider {
   border-bottom: 1px solid rgba(176, 168, 168, 0.326);
 }
+
+@media (max-width: 1300px) {
+  .canvas-wrapper {
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    height: initial;
+  }
+
+  .sidebar{
+    width: 100%;
+    height: calc(40vh - 100px);
+    justify-content: space-between;
+    border: none;
+    padding: 16px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .display {
+    width: 100%;
+    height: calc(60vh - 20px);
+  }
+
+  .canvas {
+    max-height: calc(60vh - 60px);
+  }
+
+  .divider {
+    border-right: 1px solid rgba(176, 168, 168, 0.326);
+  }
+
+  .action-btn-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    height: 100%;
+    gap: 36px;
+    
+    box-shadow: -3px 0 15px rgba(165, 165, 165, 0.388);
+  }
+
+  .display {
+    width: 100%;
+    height: calc(50vh - 10px);
+  }
+
+  .canvas {
+    max-height: calc(50vh - 60px);
+  }
+
+  .divider {
+    border-bottom: 1px solid rgba(176, 168, 168, 0.326);
+    width: 100%;
+  }
+}

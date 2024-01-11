@@ -216,7 +216,7 @@ function ConfirmPage() {
               <div className="card">
                 <img src={baseplate} alt="lego 24x24 basplatta" />
                 <div className="text">
-                  <h2 className="title">Basplatta 24x24 - 4x3</h2>
+                  <h2 className="title">Basplatta 24x24</h2>
                   <p className="info">Lego-basplatta, rymmer 24x24 legobitar (1x1). Din lego-tavla består av 4x3 basplattor</p>
                 </div>
                 <h3 className="amount">12 st</h3>
@@ -232,7 +232,7 @@ function ConfirmPage() {
               </div>
               
             </div>
-            <button className="action-btn" onClick={handleSubmit}>Lägg i Kundvagn</button>
+            <button className="landing-btn" onClick={handleSubmit}>Lägg i Kundvagn</button>
           </div>
         </div>
       </div>

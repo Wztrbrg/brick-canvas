@@ -23,7 +23,7 @@
 
 .landing-heading {
   font-size: 48px;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .landing-heading span {
@@ -38,7 +38,7 @@
 
 .landing-sub-heading {
   font-size: 28px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .landing-para {
@@ -71,4 +71,33 @@
 .landing-btn:active {
   box-shadow: 2px 2px rgb(65, 57, 57);
   background-color: rgb(255, 179, 0);
+}
+
+@media (max-width: 800px) {
+  .content-wrapper {
+    width: 100%;
+    height: calc(100vh - 77px);
+    box-shadow: none;
+    border-radius: 0;
+    justify-content: center;
+    padding: 8px;
+    gap: 16px;
+  }
+
+  .landing-heading {
+    font-size: 28px;
+  }
+
+  .landing-sub-heading {
+    font-size: 24px;
+  }
+
+  .landing-para {
+    font-size: 16px;
+  }
+
+  .landing-btn {
+    padding: 8px;
+    font-size: 16px;
+  }
 }

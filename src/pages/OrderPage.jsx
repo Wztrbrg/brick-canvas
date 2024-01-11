@@ -84,7 +84,7 @@ function OrderPage() {
               </div>
               <div className="adress-container">
                 <div className="input-container">
-                  <label>Postkod</label>
+                  <label>Postnummer</label>
                   <input type="text" required onChange={(e) =>
                   setOrderDetails({ ...orderDetails, zip: e.target.value })}/>    
                 </div>
