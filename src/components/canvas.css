@@ -99,7 +99,7 @@
 
   .sidebar{
     width: 100%;
-    height: calc(40vh - 100px);
+    height: 100%;
     justify-content: space-between;
     border: none;
     padding: 16px;
@@ -118,8 +118,9 @@
   }
 
   .divider {
-    border-right: 1px solid rgba(176, 168, 168, 0.326);
+    display: none;
   }
+
 
   .action-btn-container {
     width: 100%;
@@ -144,6 +145,7 @@
   }
 
   .divider {
+    display: block;
     border-bottom: 1px solid rgba(176, 168, 168, 0.326);
     width: 100%;
   }
