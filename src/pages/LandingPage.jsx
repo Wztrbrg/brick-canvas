@@ -11,7 +11,7 @@ function LandingPage() {
       <Header />
       <div className="landing-page-wrapper">
         <div className="content-wrapper">
-          <h1 className="landing-heading">Förvandla dina bilder till Lego&reg;mästerverk med <span>Brick Canvas</span></h1>
+          <h1 className="landing-heading">Förvandla dina bilder till Lego&reg;-mästerverk med <span>Brick Canvas</span></h1>
           <div className="instructions-container">
             <h2 className="landing-sub-heading">Såhär funkar det</h2>
             <p className="landing-para">1. Ladda upp en bild</p>
