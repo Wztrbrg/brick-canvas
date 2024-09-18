@@ -219,7 +219,7 @@ function ConfirmPage() {
               <div className="card">
                 <img src={baseplate} alt="lego 24x24 basplatta" />
                 <div className="text">
-                  <h2 className="title">Basplatta 24x24</h2>
+                  <h2 className="title">Basplatta</h2>
                   <p className="info">Lego-basplatta, rymmer 24x24 legobitar (1x1). Din lego-tavla består av 4x3 basplattor</p>
                 </div>
                 <h3 className="amount">12 st</h3>
@@ -228,7 +228,7 @@ function ConfirmPage() {
               <div className="card">
                 <img src={legopiece} alt="legobit 1x1" />
                 <div className="text">
-                  <h2 className="title">Legobit 1x1</h2>
+                  <h2 className="title">Legobit</h2>
                   <p className="info">Legobitar, 1x1, innehåller alla färger som behövs för att lägga din lego-tavla</p>
                 </div>
                 <h3 className="amount">6912 st</h3>

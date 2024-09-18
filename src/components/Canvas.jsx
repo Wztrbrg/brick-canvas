@@ -200,8 +200,8 @@ function Canvas({ file, image, onCancel }) {
             setSaturation={(saturation) => setSaturation(saturation)}
           />
           <div className="divider"></div>
-          <ZoomButtons setCurrentSize={(currentSize) => setCurrentSize(currentSize)} canSizes={canSizes} />
-          <div className="divider"></div>
+          {/* <ZoomButtons setCurrentSize={(currentSize) => setCurrentSize(currentSize)} canSizes={canSizes} /> */}
+          {/* <div className="divider"></div> */}
           <div className="action-btn-container">
             <button onClick={handleSubmit} className="action-btn">Fortsätt</button>
             <button onClick={handleCancel} className="cancel-btn">Börja Om</button>
