@@ -25,18 +25,22 @@ function OrderPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await createOrder(
-      { 
-        email: orderDetails.email, 
-        phone: orderDetails.phone, 
-        fName: orderDetails.fName, 
-        lName: orderDetails.lName, 
-        adress: orderDetails.adress, 
-        zip: orderDetails.zip, 
-        city: orderDetails.city, 
-        orderId: orderId 
-      }
-    );
+
+    //This function is disabled in the demo for testing purposes
+
+    // await createOrder(
+    //   { 
+    //     email: orderDetails.email, 
+    //     phone: orderDetails.phone, 
+    //     fName: orderDetails.fName, 
+    //     lName: orderDetails.lName, 
+    //     adress: orderDetails.adress, 
+    //     zip: orderDetails.zip, 
+    //     city: orderDetails.city, 
+    //     orderId: orderId 
+    //   }
+    // );
+    
     navigate("/thanks");
   }
 

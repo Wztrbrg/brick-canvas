@@ -148,9 +148,12 @@ function ConfirmPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let res = await createOrderItem({ image: curCanvas, pieces: colorCount  });
-    let ORDER_ID = res.data._id;
-    setOrderId(ORDER_ID);
+
+    //This function is disabled in demo function for hosting reasons
+    
+    // let res = await createOrderItem({ image: curCanvas, pieces: colorCount  });
+    // let ORDER_ID = res.data._id;
+    // setOrderId(ORDER_ID);
 
     var total = colorCount.reduce((accum,item) => accum + item.total, 0)
 
