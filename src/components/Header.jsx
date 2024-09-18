@@ -6,6 +6,7 @@ function Header() {
     <header>
       <Link to={"/"} className="logo"></Link>
       <h2>Förvandla dina bilder till Lego-mästerverk</h2>
+      <p className="demo-msg">DEMO VERSION</p>
     </header>
   )
 }
