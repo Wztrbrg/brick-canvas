@@ -14,3 +14,16 @@
   font-size: 20px;
   font-weight: 700;
 }
+
+@media (max-width: 1300px) {
+  .slider-container {
+    width: 46%;
+  }
+}
+
+@media (max-width: 800px) {
+  .slider-container {
+    width: 100%;
+    gap: 8px;
+  }
+}

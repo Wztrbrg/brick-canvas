@@ -91,3 +91,57 @@
 .order-content .landing-btn {
   width: 800px;
 }
+
+@media (max-width: 800px) {
+  .order-page-wrapper {
+    min-height: calc(100vh - 77px);
+  }
+  .order-content {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    padding: 8px;
+    border: none;
+    gap: 36px;
+  }
+
+  .order-details,
+  .payment-details {
+    width: 100%;
+    padding: 0;
+    gap: 24px;
+    border: none;
+    background-color: unset;
+  }
+
+  .name-container,
+  .adress-container {
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .name-container .input-container,
+  .adress-container .input-container {
+    width: 100%;
+  }
+
+  .order-content .landing-btn {
+    width: 100%;
+  }
+
+  .input-container label {
+    font-weight: 600;
+  }
+
+  .input-container input {
+    padding: 8px;
+    font-size: 16px;
+  }
+
+  .contact-container h2,
+  .delivery-container h2 {
+    font-size: 24px;
+  }
+}

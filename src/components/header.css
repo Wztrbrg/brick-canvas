@@ -21,7 +21,24 @@ header h2 {
   font-size: 24px;
   font-weight: 600;
   letter-spacing: -1.5px;
-  /* align-self: last baseline; */
+}
+
+@media (max-width: 800px) {
+  header {
+    justify-content: center;
+    padding: 8px;
+  }
+
+  .logo {
+    width: 208px;
+    height: 57px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  header h2 {
+    display: none;
+  }
 }
 
 .demo-msg {
@@ -30,4 +47,22 @@ header h2 {
   background-color: #2b2b2b;
   padding: 10px 18px;
   border-radius: 8px;
+}
+
+@media (max-width: 800px) {
+  header {
+    justify-content: center;
+    padding: 8px;
+  }
+
+  .logo {
+    width: 208px;
+    height: 57px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  header h2 {
+    display: none;
+  }
 }
