@@ -2,7 +2,7 @@
   "name": "brick-canvas",
   "version": "0.1.0",
   "homepage": "https://wztrbrg.github.io/brick-canvas",
-  "private": true,
+  "private": false,
   "type": "module",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
